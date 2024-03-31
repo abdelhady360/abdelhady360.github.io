@@ -18,21 +18,19 @@ tail_includes:
     {% endif %}
 
     <div class="post-meta text-muted">
-      {% comment %}
-        <!-- published date -->
-        <span>
-          {{ site.data.locales[lang].post.posted }}
-          {% include datetime.html date=page.date tooltip=true lang=lang %}
-        </span>
+      <!-- published date -->
+      <span>
+        {{ site.data.locales[lang].post.posted }}
+        {% include datetime.html date=page.date tooltip=true lang=lang %}
+      </span>
 
-        <!-- lastmod date -->
-        {% if page.last_modified_at and page.last_modified_at != page.date %}
-          <span>
-            {{ site.data.locales[lang].post.updated }}
-            {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
-          </span>
-        {% endif %}
-      {% endcomment %}
+      <!-- lastmod date -->
+      {% if page.last_modified_at and page.last_modified_at != page.date %}
+        <span>
+          {{ site.data.locales[lang].post.updated }}
+          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+        </span>
+      {% endif %}
 
       {% if page.image %}
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
@@ -90,7 +88,7 @@ tail_includes:
           {% endif %}
 
           <!-- read time -->
-          {% include read-time.html content=content prompt=true lang=lang %}
+          {% comment %} {% include read-time.html content=content prompt=true lang=lang %} {% endcomment %}
         </div>
       </div>
     </div>
