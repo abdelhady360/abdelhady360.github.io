@@ -22,7 +22,7 @@ This can cause users to unwittingly download malware, visit malicious web pages,
 
 **Basic Payload**
 
-<code>
+```html
 <style>
   iframe {
     position: relative;
@@ -40,7 +40,8 @@ This can cause users to unwittingly download malware, visit malicious web pages,
 </style>
 <div>Click me</div>
 <iframe src="https://publish.hoax.com/"></iframe>
-</code>
+```
+{: file='Clickjacking.html'}
 
 
 
