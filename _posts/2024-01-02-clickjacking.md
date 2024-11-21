@@ -40,7 +40,6 @@ This can cause users to unwittingly download malware, visit malicious web pages,
 </style>
 <div>Click me</div>
 <iframe src="https://publish.hoax.com/"></iframe>
-
 </pre>
 
 
