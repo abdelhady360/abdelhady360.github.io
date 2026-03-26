@@ -53,7 +53,7 @@ order: 4
 
 <div style="text-align: center;">
     <img src="/assets/content/certifications/tryhackme/image/THM-K5RG1DYZJF.jpg" alt="Certificate 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-    <p><strong>Pre Security</strong></p>
+    <p><strong>Pre-Security</strong></p>
     <a href="/assets/content/certifications/tryhackme/pdf/THM-K5RG1DYZJF.pdf" target="_blank">Certificate view</a>
 </div>
 
@@ -81,9 +81,10 @@ order: 4
   <summary><strong>🟢 TryHackMe</strong></summary>
   <br>
   <table>
-    <tr><td style="color: #2ecc71;">▸</td><td>Penetration Testing Path</td></tr>
-    <tr><td style="color: #2ecc71;">▸</td><td>Web Fundamentals Path</td></tr>
-    <tr><td style="color: #2ecc71;">▸</td><td>Pre-Security Path</td></tr>
+    <tr><td style="color: #2ecc71;">▸</td><td>Jr Penetration Tester Path</td></tr>
+    <tr><td style="color: #2ecc71;">▸</td><td>Cyber Security 101 Path</td></tr>
+    <tr><td style="color: #2ecc71;">▸</td><td>Pre Security (Updated) Path</td></tr>
+    <tr><td style="color: #2ecc71;">▸</td><td>Pre Security (Legacy) Path</td></tr>
   </table>
 </details>
 
