@@ -24,7 +24,7 @@ order: 4
 
 | Platform    | Achievement                                |
 | ----------- | ------------------------------------------ |
-| TryHackMe   | Top 7%                                     |
+| TryHackMe   | Top 6%                                     |
 | PortSwigger | 60% of Web Security Academy Labs Completed |
 
 <div style="display: flex; align-items: center; gap: 20px;">
