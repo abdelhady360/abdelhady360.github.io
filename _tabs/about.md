@@ -29,7 +29,7 @@ Hi! I'm Abdelhady, a Cybersecurity Researcher specializing in Penetration Testin
   color: #555;
   font-family: Consolas, "Courier New", monospace;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
   box-shadow: none;
   transition: border-color 0.2s ease;
