@@ -1,4 +1,3 @@
-
 ---
 title: About
 icon: fas fa-info-circle
@@ -9,6 +8,7 @@ order: 4
 Hi! I'm Abdelhady, a Cybersecurity Researcher specializing in Penetration Testing, Malware Analysis, and OSINT Research. My work revolves around uncovering vulnerabilities, dissecting malicious software, tracing digital footprints, and investigating real-world cyber threats. Always curious about what's happening beneath the surface.
 </div>
 
+ 
 <style>
 .about-chips {
   display: flex;
@@ -67,6 +67,9 @@ html[data-mode="dark"] .about-chip:hover {
   <span class="about-chip">Malware Analysis &amp; Reverse Engineering</span>
   <span class="about-chip">OSINT Research</span>
 </div>
+
+
+
 
 ## Certification Tracks &amp; Self-Study
 
