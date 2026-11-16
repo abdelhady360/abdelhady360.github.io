@@ -44,7 +44,6 @@ social:
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
 
-
 # Site Verification Settings
 webmaster_verifications:
   google: # fill in your Google verification code
@@ -89,7 +88,7 @@ theme_mode: # [light | dark]
 img_cdn: "https://abdelhady360.github.io"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/assets/img/favicons/Security_researcher.png"
+avatar: "/assets/img/favicons/Security_researcher.jpg"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
