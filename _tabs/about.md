@@ -10,50 +10,58 @@ Hi! I'm Abdelhady, a Cybersecurity Researcher specializing in Penetration Testin
 
  
 <style>
+/* Chip Layout */
 .about-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 18px 0 28px;
+  gap: 9px;
+  margin: 16px 0 28px;
 }
 
-.about-chip {
+/* Default Light Mode */
+.about-chips .about-chip {
   display: inline-flex;
   align-items: center;
   padding: 8px 13px;
-  border: 1px solid #dcdfe3;
-  border-radius: 6px;
-  background: #f5f6f8;
-  color: #495057;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  background: #f5f5f5;
+  color: #555;
+  font-family: Consolas, "Courier New", monospace;
   font-size: 14px;
-  line-height: 1.5;
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  font-weight: 400;
+  line-height: 1.4;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 }
 
-.about-chip:hover {
-  border-color: #8b96a5;
-  transform: translateY(-2px);
+/* Explicit Dark Mode */
+html[data-mode="dark"] .about-chips .about-chip {
+  background: #1c1c1c;
+  border-color: #373737;
+  color: #bcbcbc;
 }
 
-html[data-mode="dark"] .about-chip {
-  background: #25272c;
-  border-color: #3b3e45;
-  color: #d1d5db;
+/* Automatic Dark Mode */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) .about-chips .about-chip {
+    background: #1c1c1c;
+    border-color: #373737;
+    color: #bcbcbc;
+  }
 }
 
-html[data-mode="dark"] .about-chip:hover {
-  background: #30333a;
-  border-color: #737b88;
+/* Hover */
+.about-chips .about-chip:hover {
+  border-color: #777;
 }
 
+/* Note */
 .about-note {
   display: block;
-  margin-top: -14px;
+  margin-top: -12px;
   margin-bottom: 28px;
-  color: var(--text-muted-color, #868e96);
+  color: var(--text-muted-color, #888);
   font-size: 12px;
   line-height: 1.6;
 }
@@ -68,15 +76,12 @@ html[data-mode="dark"] .about-chip:hover {
   <span class="about-chip">OSINT Research</span>
 </div>
 
-
-
-
-## Certification Tracks &amp; Self-Study
+## Certification Tracks & Self-Study
 
 <div class="about-chips">
-  <span class="about-chip">PEN-200 (OSCP)</span>
+  <span class="about-chip">PEN-200 (OSCP+)</span>
   <span class="about-chip">SANS SEC560</span>
-  <span class="about-chip">SSANS FOR610</span>
+  <span class="about-chip">SANS FOR610</span>
   <span class="about-chip">eWPTX</span>
 </div>
 
