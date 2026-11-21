@@ -46,7 +46,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google: YDs8R24jS3VEK2P5DRWX6gBdCoih0JQ6xJpe16J1he0 # fill in your Google verification code
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
@@ -59,7 +59,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-P247C705VY # fill in your Google Analytics ID
   goatcounter:
     id: # fill in your GoatCounter ID
 
